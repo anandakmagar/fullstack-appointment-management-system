@@ -1,0 +1,63 @@
+spring:
+  security:
+    user:
+      email: admin@admin.com
+      password: adminpassword
+      role: ADMIN
+  application:
+    name: security
+  datasource:
+    initialization-mode: always
+    username: admin
+    password: admin1234
+    url: jdbc:mysql://database-1.coz3uh2yaw2j.us-east-2.rds.amazonaws.com/appointmentsdb
+  jpa:
+    properties:
+      javax.persistence.schema-generation.database.action: update
+  cloud:
+    gateway:
+      routes:
+        - id: client
+          uri: lb://client
+          predicates:
+            - Path=/client/**
+          filters:
+            - StripPrefix=1
+        - id: staff
+          uri: lb://staff
+          predicates:
+            - Path=/staff/**
+          filters:
+            - StripPrefix=1
+        - id: appointment
+          uri: lb://appointment
+          predicates:
+            - Path=/appointment/**
+          filters:
+            - StripPrefix=1
+        - id: security
+          uri: lb://security
+          predicates:
+            - Path=/security/**
+          filters:
+            - StripPrefix=1
+server:
+  port: 8090
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka/'
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    appname: security
+#logging:
+#  level:
+#    root: DEBUG
+#    org.springframework.web: DEBUG
+#    org.springframework.security: DEBUG
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
