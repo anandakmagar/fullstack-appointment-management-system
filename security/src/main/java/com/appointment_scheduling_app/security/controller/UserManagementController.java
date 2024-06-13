@@ -105,7 +105,7 @@ public class UserManagementController {
     // Staff microservice
     @PostMapping("/staff/admin/create")
     public ResponseEntity<Object> createStaff(@RequestBody Object object) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/create";
         Object object2 = client.post()
                 .uri(uri)
@@ -118,7 +118,7 @@ public class UserManagementController {
 
     @DeleteMapping("/staff/admin/delete")
     public ResponseEntity<Object> deleteByStaffId(@RequestParam long staffId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/delete?staffId={staffId}";
         Object object = client.delete()
                 .uri(uri, staffId)
@@ -130,7 +130,7 @@ public class UserManagementController {
 
     @PutMapping("/staff/admin/update")
     public ResponseEntity<Object> updateStaff(@RequestBody Object object) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/update";
         Object object2 = client.put()
                 .uri(uri)
@@ -143,7 +143,7 @@ public class UserManagementController {
 
     @GetMapping("/staff/admin-staff/fetch")
     public ResponseEntity<Object> fetchStaff(@RequestParam long staffId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/fetch?staffId={staffId}";
         Object object = client.get()
                 .uri(uri, staffId)
@@ -155,7 +155,7 @@ public class UserManagementController {
 
     @GetMapping("/staff/admin-staff/fetchStaffByStaffId")
     public ResponseEntity<Object> fetchStaffByStaffId(@RequestParam long staffId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/fetch?staffId={staffId}";
         Object object = client.get()
                 .uri(uri, staffId)
@@ -167,7 +167,7 @@ public class UserManagementController {
 
     @GetMapping("/staff/admin-staff/fetchStaffByEmail")
     public ResponseEntity<Object> fetchStaffByEmail(@RequestParam String email) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/fetchStaffByEmail?email={email}";
         Object object = client.get()
                 .uri(uri, email)
@@ -179,7 +179,7 @@ public class UserManagementController {
 
     @GetMapping("/staff/admin-staff/fetchStaffByPhoneNumber")
     public ResponseEntity<Object> fetchStaffByPhoneNumber(@RequestParam String phoneNumber) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/fetchStaffByPhoneNumber?phoneNumber={phoneNumber}";
         Object object = client.get()
                 .uri(uri, phoneNumber)
@@ -191,7 +191,7 @@ public class UserManagementController {
 
     @GetMapping("/staff/admin-staff/fetchStaffNameByStaffId")
     public ResponseEntity<String> fetchStaffNameByStaffId(@RequestParam long staffId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/fetch?staffId={staffId}";
         String name = client.get()
                 .uri(uri, staffId)
@@ -203,7 +203,7 @@ public class UserManagementController {
 
     @GetMapping("/staff/admin-staff/fetchAllStaff")
     public ResponseEntity<List<Object>> fetchAllStaff() {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8082").build();
+        WebClient client = webClientBuilder.baseUrl("http://staff").build();
         String uri = "/staff/fetchAllStaff";
         List<Object> list = client.get()
                 .uri(uri)
@@ -216,7 +216,7 @@ public class UserManagementController {
     // Client microservice
     @PostMapping("/client/admin/create")
     public ResponseEntity<Object> createClient(@Valid @RequestBody Object object) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/create";
         Object object2 = client.post()
                 .uri(uri)
@@ -229,7 +229,7 @@ public class UserManagementController {
 
     @DeleteMapping("/client/admin/delete")
     public ResponseEntity<Object> deleteByClientId(@RequestParam long clientId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/delete?clientId={clientId}";
         Object object = client.delete()
                 .uri(uri, clientId)
@@ -241,7 +241,7 @@ public class UserManagementController {
 
     @PutMapping("/client/admin/update")
     public ResponseEntity<Object> updateClient(@RequestBody Object object) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/update";
         Object object2 = client.put()
                 .uri(uri)
@@ -254,7 +254,7 @@ public class UserManagementController {
 
     @GetMapping("/client/admin-staff/fetch")
     public ResponseEntity<Object> fetchClient(@RequestParam long clientId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/fetch?clientId={clientId}";
         Object object = client.get()
                 .uri(uri, clientId)
@@ -266,7 +266,7 @@ public class UserManagementController {
 
     @GetMapping("/client/admin-staff/fetchClientByClientId")
     public ResponseEntity<Object> fetchClientByClientId(@RequestParam long clientId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/fetch?clientId={clientId}";
         Object object = client.get()
                 .uri(uri, clientId)
@@ -278,7 +278,7 @@ public class UserManagementController {
 
     @GetMapping("/client/admin-staff/fetchClientByEmail")
     public ResponseEntity<Object> fetchClientByEmail(@RequestParam String email) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/fetchClientByEmail?email={email}";
         Object object = client.get()
                 .uri(uri, email)
@@ -290,7 +290,7 @@ public class UserManagementController {
 
     @GetMapping("/client/admin-staff/fetchClientByPhoneNumber")
     public ResponseEntity<Object> fetchClientByPhoneNumber(@RequestParam String phoneNumber) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/fetchClientByPhoneNumber?phoneNumber={phoneNumber}";
         Object object = client.get()
                 .uri(uri, phoneNumber)
@@ -302,7 +302,7 @@ public class UserManagementController {
 
     @GetMapping("/client/admin-staff/fetchClientNameByClientId")
     public ResponseEntity<String> fetchClientNameByClientId(@RequestParam long clientId) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/fetch?clientId={clientId}";
         String name = client.get()
                 .uri(uri, clientId)
@@ -314,7 +314,7 @@ public class UserManagementController {
 
     @GetMapping("/client/admin-staff/fetchAllClients")
     public ResponseEntity<List<Object>> fetchAllClients() {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8081").build();
+        WebClient client = webClientBuilder.baseUrl("http://client").build();
         String uri = "/client/fetchAllClients";
         List<Object> list = client.get()
                 .uri(uri)
@@ -327,7 +327,7 @@ public class UserManagementController {
     // Appointment microservice
     @PostMapping("/appointment/admin/create")
     public ResponseEntity<Object> createAppointment(@Valid @RequestBody Object object) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/create";
         Object object2 = client.post()
                 .uri(uri)
@@ -340,7 +340,7 @@ public class UserManagementController {
 
     @DeleteMapping("appointment/admin/delete")
     public ResponseEntity<Object> deleteByAppointmentNumber(@RequestParam long appointmentNumber){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/delete?appointmentNumber={appointmentNumber}";
         Object object = client.delete()
                 .uri(uri, appointmentNumber)
@@ -352,7 +352,7 @@ public class UserManagementController {
 
     @PutMapping("/appointment/admin/update")
     public ResponseEntity<Object> updateAppointment(@RequestBody Object object){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/update";
         Object object2 = client.put()
                 .uri(uri)
@@ -365,7 +365,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetch")
     public ResponseEntity<Object> fetchAppointment(@RequestParam long appointmentNumber){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetch?appointmentNumber={appointmentNumber}";
         Object object = client.get()
                 .uri(uri, appointmentNumber)
@@ -377,7 +377,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchByClientId")
     public ResponseEntity<List<Object>> fetchByClientId(@RequestParam long clientId){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchByClientId?clientId={clientId}";
         List<Object> list = client.get()
                 .uri(uri, clientId)
@@ -389,7 +389,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchByStaffId")
     public ResponseEntity<List<Object>> fetchByStaffId(@RequestParam long staffId){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchByStaffId?staffId={staffId}";
         List<Object> list = client.get()
                 .uri(uri, staffId)
@@ -401,7 +401,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchByClientEmail")
     public ResponseEntity<List<Object>> fetchByClientEmail(@RequestParam String email){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchByStaffEmail?email={email}";
         List<Object> list = client.get()
                 .uri(uri, email)
@@ -413,7 +413,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchByClientPhoneNumber")
     public ResponseEntity<List<Object>> fetchByClientPhoneNumber(@RequestParam String phoneNumber){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchByClientPhoneNumber?phoneNumber={phoneNumber}";
         List<Object> list = client.get()
                 .uri(uri, phoneNumber)
@@ -425,7 +425,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchByStaffEmail")
     public ResponseEntity<List<Object>> fetchByStaffEmail(@RequestParam String email){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchByStaffEmail?email={email}";
         List<Object> list = client.get()
                 .uri(uri, email)
@@ -437,7 +437,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchByStaffPhoneNumber")
     public ResponseEntity<List<Object>> fetchByStaffPhoneNumber(@RequestParam String phoneNumber){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchByStaffPhoneNumber?phoneNumber={phoneNumber}";
         List<Object> list = client.get()
                 .uri(uri, phoneNumber)
@@ -449,7 +449,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchAllAppointmentStatus")
     public List<String> fetchAllAppointmentStatus(){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAllAppointmentStatus";
         List<String> list = client.get()
                 .uri(uri)
@@ -461,7 +461,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchAllAppointmentType")
     public List<String> fetchAllAppointmentType(){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAllAppointmentType";
         List<String> list = client.get()
                 .uri(uri)
@@ -473,7 +473,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchClientNameByClientId")
     public String fetchClientNameByClientIdAppointment(long clientId){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchClientNameByClientId?clientId={clientId}";
         String name = client.get()
                 .uri(uri, clientId)
@@ -485,7 +485,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchStaffNameByStaffId")
     public String fetchStaffNameByStaffIdAppointment(long staffId){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchStaffNameByStaffId?staffId={staffId}";
         String name = client.get()
                 .uri(uri, staffId)
@@ -497,7 +497,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchAppointmentsBySingleDate")
     public ResponseEntity<List<Object>> fetchAppointmentsBySingleDate(@RequestParam LocalDate date){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsBySingleDate?date={date}";
         List<Object> list = client.get()
                 .uri(uri, date)
@@ -509,7 +509,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByDoubleDates")
     public ResponseEntity<List<Object>> fetchAppointmentsByDoubleDates(@RequestParam LocalDate date1, @RequestParam LocalDate date2) {
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByDoubleDates?date1={date1}&date2={date2}";
         List<Object> list = client.get()
                 .uri(uri, date1, date2)
@@ -521,7 +521,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByAppointmentStatus")
     public ResponseEntity<List<Object>> fetchAppointmentsByAppointmentStatus(@RequestParam String appointmentStatus){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByAppointmentStatus?appointmentStatus={appointmentStatus}";
         List<Object> list = client.get()
                 .uri(uri, appointmentStatus)
@@ -532,7 +532,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByAppointmentType")
     public ResponseEntity<List<Object>> fetchAppointmentsByAppointmentType(@RequestParam String appointmentType){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByAppointmentType?appointmentType={appointmentType}";
         List<Object> list = client.get()
                 .uri(uri, appointmentType)
@@ -543,7 +543,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsForToday")
     public ResponseEntity<List<Object>> fetchAppointmentsForToday(){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsForToday";
         List<Object> list = client.get()
                 .uri(uri)
@@ -554,7 +554,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByAppointmentTypeAndSingleDate")
     public ResponseEntity<List<Object>> fetchAppointmentsByAppointmentTypeAndSingleDate(@RequestParam String appointmentType, @RequestParam LocalDate date){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByAppointmentTypeAndSingleDate?appointmentType={appointmentType}&date={date}";
         List<Object> list = client.get()
                 .uri(uri, appointmentType, date)
@@ -565,7 +565,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByAppointmentTypeAndDoubleDates")
     public ResponseEntity<List<Object>> fetchAppointmentsByAppointmentTypeAndDoubleDates(@RequestParam String appointmentType, @RequestParam LocalDate date1, @RequestParam LocalDate date2){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByAppointmentTypeAndDoubleDates?appointmentType={appointmentType}&date1={date1}&date2{date2}";
         List<Object> list = client.get()
                 .uri(uri, appointmentType, date1, date2)
@@ -576,7 +576,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByAppointmentStatusAndSingleDate")
     public ResponseEntity<List<Object>> fetchAppointmentsByAppointmentStatusAndSingleDate(@RequestParam String appointmentStatus, @RequestParam LocalDate date){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByAppointmentStatusAndSingleDate?appointmentStatus={appointmentStatus}&date={date}";
         List<Object> list = client.get()
                 .uri(uri, appointmentStatus, date)
@@ -587,7 +587,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByAppointmentStatusAndDoubleDates")
     public ResponseEntity<List<Object>> fetchAppointmentsByAppointmentStatusAndDoubleDates(@RequestParam String appointmentStatus, @RequestParam LocalDate date1, @RequestParam LocalDate date2){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByAppointmentStatusAndDoubleDates?appointmentStatus={appointmentStatus}&date1={date1}&date2={date2}";
         List<Object> list = client.get()
                 .uri(uri, appointmentStatus, date1, date2)
@@ -598,7 +598,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByStatusForToday")
     public ResponseEntity<List<Object>> fetchAppointmentsByStatusForToday(@RequestParam String appointmentStatus){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByStatusForToday?appointmentStatus={appointmentStatus}";
         List<Object> list = client.get()
                 .uri(uri, appointmentStatus)
@@ -609,7 +609,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByTypeForToday")
     public ResponseEntity<List<Object>> fetchAppointmentsByTypeForToday(@RequestParam String appointmentType){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByTypeForToday?appointmentType={appointmentType}";
         List<Object> list = client.get()
                 .uri(uri, appointmentType)
@@ -620,7 +620,7 @@ public class UserManagementController {
     }
     @GetMapping("/appointment/admin-staff/fetchAppointmentsByStatusAndTypeForToday")
     public ResponseEntity<List<Object>> fetchAppointmentsByStatusAndTypeForToday(@RequestParam String appointmentStatus, @RequestParam String appointmentType){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAppointmentsByStatusAndTypeForToday?appointmentStatus={appointmentStatus}&appointmentType={appointmentType}";
         List<Object> list = client.get()
                 .uri(uri, appointmentStatus, appointmentType)
@@ -632,7 +632,7 @@ public class UserManagementController {
 
     @GetMapping("/appointment/admin-staff/fetchAllAppointments")
     public ResponseEntity<List<Object>> fetchAllAppointments(){
-        WebClient client = webClientBuilder.baseUrl("http://localhost:8080").build();
+        WebClient client = webClientBuilder.baseUrl("http://appointment").build();
         String uri = "/appointment/fetchAllAppointments";
         List<Object> list = client.get()
                 .uri(uri)
